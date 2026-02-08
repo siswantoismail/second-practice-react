@@ -1,4 +1,6 @@
-export default function AuthLayout({ children, title }) {
+import { Link } from "react-router-dom";
+
+export default function AuthLayout({ children, title, type }) {
   return (
     <div className="flex justify-center min-h-screen items-center">
       <div className="w-full max-w-xs">
@@ -7,6 +9,27 @@ export default function AuthLayout({ children, title }) {
           Welcome back! Please enter your details.
         </p>
         {children}
+        <p className="mt-4 text-sm text-center">
+          {type === "login"
+            ? "Don't have an account?"
+            : "Already have an account? "}
+          {type === "login" && (
+            <Link
+              to="/register"
+              className="text-blue-600 font-medium hover:underline"
+            >
+              Register
+            </Link>
+          )}
+          {type === "register" && (
+            <Link
+              to="/login"
+              className="text-blue-600 font-medium hover:underline"
+            >
+              Login
+            </Link>
+          )}
+        </p>
       </div>
     </div>
   );
