@@ -27,7 +27,7 @@ function Body({ children, title }) {
         <h5 className="text-xl font-semibold tracking-tight text-white">
           {title}
         </h5>
-        <p className="text-sm text-white">{children}</p>
+        <p className="text-sm text-white">{children.substring(0, 100)}</p>
       </a>
     </div>
   );
@@ -38,7 +38,7 @@ function Footer({ price, handleAddToCart, id }) {
     <div className="flex items-center justify-between px-5 pb-5">
       <span className="text-sm font-bold text-white">
         {" "}
-        {price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
+        {price.toLocaleString("id-ID", { style: "currency", currency: "USD" })}
       </span>
       <Button
         classname="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-sm"
